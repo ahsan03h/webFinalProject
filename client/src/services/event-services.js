@@ -62,6 +62,10 @@ const eventServices = {
 
         return event;
     }
+
+    
 }
+
+
 
 export default eventServices;

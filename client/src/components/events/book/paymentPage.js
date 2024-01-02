@@ -1,7 +1,8 @@
 // PaymentPage.js
 import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
-import { Elements, CardElement } from '@stripe/react-stripe-js';
+import { Elements, CardElement } from '@stripe/react-stripe-js'
+import { useHistory } from 'react-router-dom';
 
 const stripePromise = loadStripe("pk_test_51ORYRtBVjrVa3wcOtsHdAOi9Nu63fGm0PbjfZypGMRiNZRFF6GX46jIz8OASPqFaIgEPBN5CqBYmKA1ri73ZPqjS00sM4xuZOx");
 
@@ -48,9 +49,15 @@ const CheckoutForm = ({ onSuccess, onError }) => {
 };
 
 const PaymentPage = () => {
+
+  const history = useHistory();
+
   const handlePaymentSuccess = () => {
     // Handle the payment success logic
     console.log('Payment successful!');
+    const isConfirmed = window.confirm('Booking is confirmed. Click OK to go to the homepage.');
+    // Redirect to the homepage with a confirmation message
+    history.push('/', { message: 'Booking is confirmed' });
   };
 
   const handlePaymentError = () => {

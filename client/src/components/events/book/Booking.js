@@ -26,13 +26,13 @@ const Booking = () => {
   }, []);
 
   const dishes = [
-    { name: "Chicken Karahi", costPerHead: 10 },
-    { name: "Barbeque", costPerHead: 15 },
-    { name: "Mutton Karahi", costPerHead: 12 },
-    { name: "Biryani", costPerHead: 8 },
-    { name: "Swedish", costPerHead: 18 },
-    { name: "Tea", costPerHead: 2 },
-    { name: "Soup", costPerHead: 5 },
+    { name: "Chicken Karahi", costPerHead: 400 },
+    { name: "Barbeque", costPerHead: 500 },
+    { name: "Mutton Karahi", costPerHead: 700 },
+    { name: "Biryani", costPerHead: 150 },
+    { name: "Swedish", costPerHead: 180 },
+    { name: "Tea", costPerHead: 50 },
+    { name: "Soup", costPerHead: 100 },
   ];
 
   const handleInputChange = (e) => {
@@ -160,13 +160,13 @@ const Booking = () => {
                 checked={formData.selectedDishes.includes(dish.name)}
                 onChange={() => handleCheckboxChange(dish.name)}
               />
-              {dish.name} - ${dish.costPerHead} per head
+              {dish.name} - RS{dish.costPerHead} per head
             </label>
           </div>
         ))}
       </form>
       <div>
-        <h3>Total Cost: ${calculateTotalCost()}</h3>
+        <h3>Total Cost: RS{calculateTotalCost()}</h3>
       </div>
       <button className="confirm-button" onClick={handleConfirmBooking}>Book Hotel</button>
     </div>
